@@ -1,0 +1,51 @@
+﻿@model WISTML_FRAMEWORK_.Models.ViewModel.UsuarioViewModel
+@{
+	ViewBag.Title = "Agregar Usuario";
+}
+
+<h2>Add</h2>
+
+<div class="row">
+
+	<div class="col-md-12">
+
+		<br /><br /> <br /><br /><br /><br />
+
+		@using (Html.BeginForm("Add", "Usuarios", FormMethod.Post, new { role = "form", @class = "" }))
+
+		{
+			@Html.AntiForgeryToken()
+
+			@Html.ValidationMessage("error", new { @class = "text-danger" })
+
+			@Html.LabelFor(d => d.usuario)
+			@Html.TextBoxFor(d => d.usuario, new { @class = "form-control" })
+			@Html.ValidationMessage("usuario", new { @class = "text-danger" })<br />
+
+			@Html.LabelFor(d => d.email)
+			@Html.TextBoxFor(d => d.email, new { @class = "form-control" })
+			@Html.ValidationMessage("email", new { @class = "text-danger" })<br />
+
+			@Html.LabelFor(d => d.contraseña)
+			@Html.PasswordFor(d => d.contraseña, new { @class = "form-control" })
+			@Html.ValidationMessage("contraseña", new { @class = "text-danger" })<br />
+
+			@Html.LabelFor(d => d.confirmcontraseña)
+			@Html.PasswordFor(d => d.confirmcontraseña, new { @class = "form-control" })
+			@Html.ValidationMessage("confirmcontraseña", new { @class = "text-danger" })<br />
+
+			@Html.LabelFor(d => d.sexo)
+			@Html.TextBoxFor(d => d.sexo, new { @class = "form-control" })
+			@Html.ValidationMessage("sexo", new { @class = "text-danger" })<br />
+
+			@*@Html.LabelFor(d => d.fecha)
+			@Html.TextBoxFor(d => d.fecha, new { @class = "form-control" })*@
+
+			<div style="text-align:right;">
+				<input type="submit" class="btn btn-success" value="Guardar">
+			</div>
+		}
+
+	</div>
+
+</div>
